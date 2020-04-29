@@ -14,6 +14,7 @@ from tkinter import messagebox
 # Be sure to import out other modules
 # so we can have access to them
 import check_files_gui
+import check_files_func
 
 
 # Frame is the tkinter frame class that our own class will inherit from
@@ -26,12 +27,12 @@ class ParentWindow(Frame):
         self.master.minsize(500,200) #(Height, Width)
         self.master.maxsize(500,200)
         # This CenterWindow method will center our app on the user's screen
-        # check_files_func.center_window(self,500,200)
+        check_files_func.center_window(self,500,200)
         self.master.title("Check file")
         self.master.configure(bg="#F0F0F0")
         # This protocol method is a tkinter built-in method to catch if
         # the user clicks the upper corner, "X" on Windows OS.
-        # self.master.protocol("WM_DELETE_WINDOW", lambda: check_files_func.ask_quit(self))
+        self.master.protocol("WM_DELETE_WINDOW", lambda: check_files_func.ask_quit(self))
         arg = self.master
 
         # load in the GUI widgets from a separeate module,
